@@ -259,9 +259,11 @@ Make any necessary updates to email settings or configurations inside the file.
 
 📊 Output Example
 
-[INFO] IP: 10.227.9.129 | Requests in last 10 sec: 5
-[BLOCKED] 10.227.9.129 blocked for too many requests! (Hits: 6)
-[EMAIL SENT] Alert sent to admin
+    [INFO] IP: 10.227.9.129 | Requests in last 10 sec: 5
+
+    [BLOCKED] 10.227.9.129 blocked for too many requests! (Hits: 6)
+
+    [EMAIL SENT] Alert sent to admin
 
 📬 Author
 
