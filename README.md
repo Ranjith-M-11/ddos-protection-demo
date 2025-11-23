@@ -81,17 +81,17 @@ Follow the steps below to run the DDoS Detection System on your local machine:
 
 3️⃣ Python code
 
-from flask import Flask, request
+    from flask import Flask, request
 
-import time
+    import time
 
-import smtplib
+    import smtplib
 
-from email.mime.text import MIMEText
+    from email.mime.text import MIMEText
 
-import atexit
+    import atexit
 
-app = Flask(__name__)
+    app = Flask(__name__)
 
 # Email alert settings
 
@@ -264,6 +264,11 @@ Make any necessary updates to email settings or configurations inside the file.
     [BLOCKED] 10.227.9.129 blocked for too many requests! (Hits: 6)
 
     [EMAIL SENT] Alert sent to admin
+
+<img width="1365" height="556" alt="Screenshot 2025-11-22 at 01-03-53 " src="https://github.com/user-attachments/assets/78576b65-8df9-40de-af25-ee0a6bba04c8" />
+
+<img width="1364" height="556" alt="Screenshot 2025-11-22 at 01-04-21 " src="https://github.com/user-attachments/assets/33931602-11e3-4955-89af-5baa84d2e17e" />
+
 
 📬 Author
 
