@@ -69,15 +69,15 @@ Follow the steps below to run the DDoS Detection System on your local machine:
 
 1️⃣ Navigate to the Project Folder
 
-Use the command prompt to move into your project directory:
+  Use the command prompt to move into your project directory:
 
-  cd C:\Users\LENOVO\ddos_demo
+    cd C:\Users\LENOVO\ddos_demo
 
 2️⃣ Open the Server Script
 
-Use Notepad to code Python server file:
+  Use Notepad to code Python server file:
 
-  notepad ddos_server.py
+    notepad ddos_server.py
 
 3️⃣ Python code
 
@@ -198,15 +198,15 @@ Make any necessary updates to email settings or configurations inside the file.
 
 4️⃣ Activate the Virtual Environment
 
-Start the Python virtual environment:
+  Start the Python virtual environment:
 
- venv\Scripts\activate
+   venv\Scripts\activate
 
 5️⃣ Run the DDoS Detection Server
 
-Start the Flask-based DDoS detection system:
+  Start the Flask-based DDoS detection system:
 
- python ddos_server.py
+   python ddos_server.py
 
 📊 Output Example
 
@@ -219,6 +219,5 @@ Start the Flask-based DDoS detection system:
 Ranjith M
 B.E – Artificial Intelligence
 Maharaja Institute of Technology Mysore
-
 
 Blocked IPs are prevented from accessing the server for a cooldown period.
