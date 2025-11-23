@@ -28,5 +28,3 @@ If an IP exceeds the allowed limit, it is marked as blocked.
 A notification email is sent instantly to the admin.
 
 Blocked IPs are prevented from accessing the server for a cooldown period.
-
-📂 Project St
