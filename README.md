@@ -94,74 +94,74 @@ Follow the steps below to run the DDoS Detection System on your local machine:
     app = Flask(__name__)
 
 # Email alert settings
+  
+    ADMIN_EMAIL = "4mh24ca@gmail.com"        # Your Gmail
 
-ADMIN_EMAIL = "4mh24ca@gmail.com"        # Your Gmail
+    APP_PASSWORD = "Password"                # 16 letter app password
 
-APP_PASSWORD = "Password"                # 16 letter app password
-
-ALERT_TO = "4mh24ca@gmail.com"           # Where alerts should be sent
+    ALERT_TO = "4mh24ca@gmail.com"           # Where alerts should be sent
 
 # Rate limit settings
 
-WINDOW = 10
+    WINDOW = 10
 
-BLOCK = 5
+    BLOCK = 5
 
-request_count = {}
+    request_count = {}
 
-blocked = {}
+    blocked = {}
 
-total_requests = {}
+    total_requests = {}
 
 # ---------------------------
 # Email sending function
 # ---------------------------
 
-def send_email_alert(ip, hits):
+    def send_email_alert(ip, hits):
 
-    try:
+        try:
     
-        subject = "⚠ ALERT: Suspicious Activity Detected"
+            subject = "⚠ ALERT: Suspicious Activity Detected"
         
-        message = f"""
+            message = f"""
         
-        🚨 DDoS Alert Triggered!
+             🚨 DDoS Alert Triggered!
 
-        Suspicious IP has been blocked:
+            Suspicious IP has been blocked:
 
-        🔹 IP Address: {ip}
+            🔹 IP Address: {ip}
         
-        🔹 Requests in last 10s: {hits}
+            🔹 Requests in last 10s: {hits}
         
-        🔹 Time: {time.ctime()}
+            🔹 Time: {time.ctime()}
 
-        Please check your DDoS protection server.
+            Please check your DDoS protection server.
         
-        """
+            """
 
-        msg = MIMEText(message)
+            msg = MIMEText(message)
         
-        msg["Subject"] = subject
+            msg["Subject"] = subject
         
-        msg["From"] = ADMIN_EMAIL
+            msg["From"] = ADMIN_EMAIL
         
-        msg["To"] = ALERT_TO
+            msg["To"] = ALERT_TO
 
-        server = smtplib.SMTP("smtp.gmail.com", 587)
+            server = smtplib.SMTP("smtp.gmail.com", 587)
         
-        server.starttls()
+            server.starttls()
         
-        server.login(ADMIN_EMAIL, APP_PASSWORD)
+            server.login(ADMIN_EMAIL, APP_PASSWORD)
         
-        server.sendmail(ADMIN_EMAIL, ALERT_TO, msg.as_string())
+            server.sendmail(ADMIN_EMAIL, ALERT_TO, msg.as_string())
         
-        server.quit()
+            server.quit()
 
-        print(f"[EMAIL] Alert sent to {ALERT_TO} for IP {ip}")
+            print(f"[EMAIL] Alert sent to {ALERT_TO} for IP {ip}")
 
-    except Exception as e:
+        except Exception as e:
     
-        print("[EMAIL ERROR]", e)
+            print("[EMAIL ERROR]", e)
 
 # ---------------------------
 # Server shutdown summary
