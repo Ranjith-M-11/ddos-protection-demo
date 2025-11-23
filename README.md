@@ -82,76 +82,113 @@ Follow the steps below to run the DDoS Detection System on your local machine:
 3️⃣ Python code
 
 from flask import Flask, request
+
 import time
+
 import smtplib
+
 from email.mime.text import MIMEText
+
 import atexit
 
 app = Flask(__name__)
 
 # Email alert settings
+
 ADMIN_EMAIL = "4mh24ca@gmail.com"        # Your Gmail
+
 APP_PASSWORD = "Password"                # 16 letter app password
+
 ALERT_TO = "4mh24ca@gmail.com"           # Where alerts should be sent
 
 # Rate limit settings
+
 WINDOW = 10
+
 BLOCK = 5
 
 request_count = {}
+
 blocked = {}
+
 total_requests = {}
 
 # ---------------------------
 # Email sending function
 # ---------------------------
+
 def send_email_alert(ip, hits):
+
     try:
+    
         subject = "⚠ ALERT: Suspicious Activity Detected"
+        
         message = f"""
+        
         🚨 DDoS Alert Triggered!
 
         Suspicious IP has been blocked:
 
         🔹 IP Address: {ip}
+        
         🔹 Requests in last 10s: {hits}
+        
         🔹 Time: {time.ctime()}
 
         Please check your DDoS protection server.
+        
         """
 
         msg = MIMEText(message)
+        
         msg["Subject"] = subject
+        
         msg["From"] = ADMIN_EMAIL
+        
         msg["To"] = ALERT_TO
 
         server = smtplib.SMTP("smtp.gmail.com", 587)
+        
         server.starttls()
+        
         server.login(ADMIN_EMAIL, APP_PASSWORD)
+        
         server.sendmail(ADMIN_EMAIL, ALERT_TO, msg.as_string())
+        
         server.quit()
 
         print(f"[EMAIL] Alert sent to {ALERT_TO} for IP {ip}")
 
     except Exception as e:
+    
         print("[EMAIL ERROR]", e)
 
 # ---------------------------
 # Server shutdown summary
 # ---------------------------
+
 def show_summary():
+
     print("\n========== SERVER SUMMARY ==========")
+    
     print(f"Total unique visitors: {len(total_requests)}")
 
     for ip, count in total_requests.items():
+    
         print(f"IP: {ip} → Total Requests: {count}")
 
     print("\nBlocked IPs:")
+    
     if blocked:
+
         for ip in blocked:
+        
             print(f"❌ {ip} was blocked")
+            
     else:
+    
         print("No IPs were blocked.")
+        
     print("====================================\n")
 
 atexit.register(show_summary)
@@ -160,30 +197,41 @@ atexit.register(show_summary)
 # ---------------------------
 # Main server logic
 # ---------------------------
+
 @app.route("/")
+
 def index():
+
     ip = request.remote_addr
+    
     now = time.time()
 
     total_requests[ip] = total_requests.get(ip, 0) + 1
 
     if ip in blocked:
+    
         print(f"[BLOCKED] Request from blocked IP {ip}")
+        
         return "⛔ You are blocked!"
 
     request_count.setdefault(ip, [])
+    
     request_count[ip].append(now)
 
     request_count[ip] = [t for t in request_count[ip] if now - t < WINDOW]
+    
     hits = len(request_count[ip])
 
     print(f"[INFO] IP: {ip} | Requests in last 10 sec: {hits}")
 
     if hits > BLOCK:
+    
         blocked[ip] = now
+        
         print(f"[BLOCKED] {ip} blocked! (Hits: {hits})")
 
         # SEND EMAIL ALERT HERE
+        
         send_email_alert(ip, hits)
 
         return "🚫 Blocked due to too many requests!"
@@ -192,6 +240,7 @@ def index():
 
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000)
 
 Make any necessary updates to email settings or configurations inside the file.
