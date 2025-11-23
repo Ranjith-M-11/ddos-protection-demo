@@ -249,13 +249,13 @@ Make any necessary updates to email settings or configurations inside the file.
 
   Start the Python virtual environment:
 
-   venv\Scripts\activate
+     venv\Scripts\activate
 
 5️⃣ Run the DDoS Detection Server
 
   Start the Flask-based DDoS detection system:
 
-   python ddos_server.py
+     python ddos_server.py
 
 📊 Output Example
 
@@ -266,5 +266,7 @@ Make any necessary updates to email settings or configurations inside the file.
 📬 Author
 
 Ranjith M
+
 B.E – Artificial Intelligence
+
 Maharaja Institute of Technology Mysore
