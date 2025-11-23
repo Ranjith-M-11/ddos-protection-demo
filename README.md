@@ -37,31 +37,31 @@ ddos_demo/
 🧰 Tech Stack
 Backend
 
- 1.Python 3.x – Core programming language
+ 1. Python 3.x – Core programming language
 
- 2.Flask – Lightweight web framework for handling incoming HTTP requests
+ 2. Flask – Lightweight web framework for handling incoming HTTP requests
 
 Security / Logic
 
- 1.IP Rate Limiting – Custom Python logic for counting requests
+ 1. IP Rate Limiting – Custom Python logic for counting requests
 
- 2.In-memory Data Structures (Dict, Lists) – To store IP request timestamps
+ 2. In-memory Data Structures (Dict, Lists) – To store IP request timestamps
 
- 3.Blocking Mechanism – Temporary IP blacklist logic
+ 3. Blocking Mechanism – Temporary IP blacklist logic
 
 Email Notifications
 
- 1.smtplib (Python SMTP Library) – To send email alerts
+ 1. smtplib (Python SMTP Library) – To send email alerts
 
- 2.Gmail App Passwords – For secure authentication
+ 2. Gmail App Passwords – For secure authentication
 
 Environment & Tools
 
- 1.Virtual Environment (venv) – For package isolation
+ 1. Virtual Environment (venv) – For package isolation
 
- 2.Command Prompt / PowerShell – To run the project
+ 2. Command Prompt / PowerShell – To run the project
 
- 3.Windows 10 – Development and execution platform
+ 3. Windows 10 – Development and execution platform
 
 ⚙️ Installation & Setup
 
