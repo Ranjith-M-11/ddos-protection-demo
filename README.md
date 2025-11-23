@@ -90,9 +90,9 @@ import atexit
 app = Flask(__name__)
 
 # Email alert settings
-ADMIN_EMAIL = "4mh24ca403@gmail.com"        # Your Gmail
-APP_PASSWORD = "Ranjith.M@2811"          # 16 letter app password
-ALERT_TO = "4mh24ca403@gmail.com"           # Where alerts should be sent
+ADMIN_EMAIL = "4mh24ca@gmail.com"        # Your Gmail
+APP_PASSWORD = "Password"                # 16 letter app password
+ALERT_TO = "4mh24ca@gmail.com"           # Where alerts should be sent
 
 # Rate limit settings
 WINDOW = 10
@@ -219,5 +219,3 @@ Make any necessary updates to email settings or configurations inside the file.
 Ranjith M
 B.E – Artificial Intelligence
 Maharaja Institute of Technology Mysore
-
-Blocked IPs are prevented from accessing the server for a cooldown period.
